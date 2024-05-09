@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKSU - Letter Sender Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/logo1.png">
+</head>
+<body>
+    <div class="container">
+        <div class="top-container">
+            <img src="/static/logo.png" alt="MInbox Logo" class="logo">
+            <h1>User Login</h1>
+            <span>Welcome To Letter Sender</span>
+        </div>
+        <div class="login-container">
+            <form action="{% url 'dashboard' %}" method="POST">
+                {% csrf_token %}
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                {% if f %}
+                <script>
+                    alert("{{msg}}");
+                </script>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
